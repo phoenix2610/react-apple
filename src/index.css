@@ -146,6 +146,209 @@ body {
   background-color: #0077ed;
 }
 
+/* Showcase Section */
+#showcase {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#showcase .media {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#showcase video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#showcase .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+#showcase .mask img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* This ensures the mask image covers the video properly */
+  mix-blend-mode: multiply;
+  /* Adjust based on your mask image type */
+}
+
+#showcase .content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  padding: 4rem 2rem;
+  opacity: 0;
+  /* Initial state for GSAP animation */
+  transform: translateY(50px);
+  /* Initial state for GSAP animation */
+}
+
+#showcase .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+#showcase h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+#showcase p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #86868b;
+  margin-bottom: 1.5rem;
+}
+
+#showcase h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+/* ProductViewer Section */
+#productviewer {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+#productviewer h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+}
+
+.controls {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.controls .info {
+  font-size: 1.1rem;
+  color: #a1a1a6;
+  margin-bottom: 1.5rem;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gap-5 {
+  gap: 2rem;
+}
+
+.mt-5 {
+  margin-top: 1.5rem;
+}
+
+.color-control,
+.size-control {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.color-control div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.color-control div:hover {
+  transform: scale(1.1);
+}
+
+.color-control div.active {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.size-control div {
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.size-control div:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.bg-neutral-300 {
+  background-color: #c9c8cc;
+}
+
+.bg-neutral-900 {
+  background-color: #2e2c2e;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.canvas-container {
+  width: 100%;
+  height: 600px;
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.5) 0%, rgba(10, 10, 10, 0.5) 100%);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
@@ -158,5 +361,21 @@ body {
 
   #hero h1 {
     font-size: 2rem;
+  }
+
+  .canvas-container {
+    height: 400px;
+  }
+
+  #productviewer h2 {
+    font-size: 2rem;
+  }
+
+  #showcase .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  #showcase h2 {
+    font-size: 2.5rem;
   }
 }
