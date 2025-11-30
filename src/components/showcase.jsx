@@ -21,7 +21,13 @@ const Showcase = () => {
                     pin: true,
                     onEnter: () => {
                         if (videoRef.current) {
-                            videoRef.current.play();
+                            videoRef.current.muted = false;
+                            videoRef.current.play().catch(err => {
+                                console.log("Video play failed:", err);
+                                // Fallback to muted if audio autoplay is blocked
+                                videoRef.current.muted = true;
+                                videoRef.current.play();
+                            });
                         }
                     },
                     onLeave: () => {
@@ -31,7 +37,12 @@ const Showcase = () => {
                     },
                     onEnterBack: () => {
                         if (videoRef.current) {
-                            videoRef.current.play();
+                            videoRef.current.muted = false;
+                            videoRef.current.play().catch(err => {
+                                console.log("Video play failed:", err);
+                                videoRef.current.muted = true;
+                                videoRef.current.play();
+                            });
                         }
                     },
                     onLeaveBack: () => {
@@ -64,6 +75,7 @@ const Showcase = () => {
                     src="/videos/sukuna_vs_mahito.mp4"
                     loop
                     playsInline
+                    preload="auto"
                 />
                 <div className="mask">
                     <img src="/mask-logo.svg" alt="Mask Logo" />
